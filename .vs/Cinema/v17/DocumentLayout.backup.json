@@ -1,0 +1,158 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|c:\\users\\user\\desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\cinema\\cinema\\cinema\\usercontrol1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\usercontrol1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\cinema\\usercontrol1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\usercontrol1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\cinema\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\cinema\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|c:\\users\\user\\desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\cinema\\cinema\\cinema\\appdata\\modelhome.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\appdata\\modelhome.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\cinema\\appdata\\cinemabd.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\appdata\\cinemabd.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|c:\\users\\user\\desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\cinema\\cinema\\cinema\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\cinema\\appdata\\appconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E94F3C8-6925-4893-AEDE-50AFD0E7EC11}|Cinema\\Cinema.csproj|solutionrelative:cinema\\appdata\\appconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 249,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserControl1.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\UserControl1.cs",
+              "RelativeDocumentMoniker": "Cinema\\UserControl1.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\UserControl1.cs",
+              "RelativeToolTip": "Cinema\\UserControl1.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA0wBkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T19:52:43.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ModelHome.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\AppData\\ModelHome.edmx",
+              "RelativeDocumentMoniker": "Cinema\\AppData\\ModelHome.edmx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\AppData\\ModelHome.edmx [Diagram1]",
+              "RelativeToolTip": "Cinema\\AppData\\ModelHome.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2026-03-21T19:17:00.103Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppConnect.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\AppData\\AppConnect.cs",
+              "RelativeDocumentMoniker": "Cinema\\AppData\\AppConnect.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\AppData\\AppConnect.cs",
+              "RelativeToolTip": "Cinema\\AppData\\AppConnect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T09:22:00.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CinemaBD.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\AppData\\CinemaBD.edmx",
+              "RelativeDocumentMoniker": "Cinema\\AppData\\CinemaBD.edmx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\AppData\\CinemaBD.edmx [Diagram1]",
+              "RelativeToolTip": "Cinema\\AppData\\CinemaBD.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2026-03-20T08:53:27.008Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\Program.cs",
+              "RelativeDocumentMoniker": "Cinema\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\Program.cs",
+              "RelativeToolTip": "Cinema\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAuwBIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T08:51:19.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\Form1.cs",
+              "RelativeDocumentMoniker": "Cinema\\Form1.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\Form1.cs",
+              "RelativeToolTip": "Cinema\\Form1.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwC4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T08:35:20.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\Form1.cs",
+              "RelativeDocumentMoniker": "Cinema\\Form1.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Cinema\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T08:30:39.643Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 151,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserControl1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\UserControl1.cs",
+              "RelativeDocumentMoniker": "Cinema\\UserControl1.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\\u043F\u0440\u043E\u0433\u0435\u0440\u0441\u0442\u0432\u043E\\Cinema\\Cinema\\Cinema\\UserControl1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Cinema\\UserControl1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T09:18:30.627Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

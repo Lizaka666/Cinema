@@ -1,0 +1,733 @@
+USE [master]
+GO
+/****** Object:  Database [CinemaOnline]    Script Date: 25.03.2026 23:43:37 ******/
+CREATE DATABASE [CinemaOnline]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'CinemaOnline', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\DATA\CinemaOnline.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'CinemaOnline_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\DATA\CinemaOnline_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [CinemaOnline] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [CinemaOnline].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [CinemaOnline] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [CinemaOnline] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [CinemaOnline] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [CinemaOnline] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [CinemaOnline] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [CinemaOnline] SET  MULTI_USER 
+GO
+ALTER DATABASE [CinemaOnline] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [CinemaOnline] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [CinemaOnline] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [CinemaOnline] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [CinemaOnline] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [CinemaOnline] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'CinemaOnline', N'ON'
+GO
+ALTER DATABASE [CinemaOnline] SET QUERY_STORE = OFF
+GO
+USE [CinemaOnline]
+GO
+/****** Object:  Table [dbo].[AgeRating]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AgeRating](
+	[AgeRatingID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](255) NOT NULL,
+ CONSTRAINT [PK_AgeRating] PRIMARY KEY CLUSTERED 
+(
+	[AgeRatingID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CinemaHall]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CinemaHall](
+	[CinemaHallID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Сapacity] [int] NOT NULL,
+	[Rows] [int] NOT NULL,
+	[CountInRows] [int] NOT NULL,
+	[TypeHallID] [int] NOT NULL,
+ CONSTRAINT [PK_CinemaHalls] PRIMARY KEY CLUSTERED 
+(
+	[CinemaHallID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Country]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Country](
+	[CountyID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Country] PRIMARY KEY CLUSTERED 
+(
+	[CountyID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Director]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Director](
+	[DirectorID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](30) NOT NULL,
+	[DateOfBirth] [date] NOT NULL,
+ CONSTRAINT [PK_Director] PRIMARY KEY CLUSTERED 
+(
+	[DirectorID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FilmGenre]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FilmGenre](
+	[FilmGenreID] [int] IDENTITY(1,1) NOT NULL,
+	[FilmID] [int] NOT NULL,
+	[GenresID] [int] NOT NULL,
+ CONSTRAINT [PK_FilmGenres] PRIMARY KEY CLUSTERED 
+(
+	[FilmGenreID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FilmInfo]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FilmInfo](
+	[FilmID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NOT NULL,
+	[CountryID] [int] NOT NULL,
+	[DirectorID] [int] NOT NULL,
+	[DurationMin] [int] NOT NULL,
+	[AgeRatingID] [int] NOT NULL,
+	[StudioID] [int] NOT NULL,
+	[LanguageID] [int] NOT NULL,
+	[Image] [nvarchar](60) NULL,
+	[Description] [nvarchar](255) NULL,
+ CONSTRAINT [PK_FilmInfo] PRIMARY KEY CLUSTERED 
+(
+	[FilmID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Genre]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Genre](
+	[GenreID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Genres] PRIMARY KEY CLUSTERED 
+(
+	[GenreID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Language]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Language](
+	[LanguageID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Language] PRIMARY KEY CLUSTERED 
+(
+	[LanguageID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Role]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Role](
+	[RoleID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[RoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SessionCinema]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SessionCinema](
+	[SessionCinemaID] [int] NOT NULL,
+	[idCinema] [int] NOT NULL,
+	[idHalls] [int] NOT NULL,
+	[DateSession] [date] NOT NULL,
+ CONSTRAINT [PK_SessionCinema] PRIMARY KEY CLUSTERED 
+(
+	[SessionCinemaID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Studio]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Studio](
+	[StudioID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Studio] PRIMARY KEY CLUSTERED 
+(
+	[StudioID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tiket]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tiket](
+	[TiketsID] [int] IDENTITY(1,1) NOT NULL,
+	[SessionID] [int] NOT NULL,
+	[DateAndTime] [datetime] NOT NULL,
+	[Price] [decimal](10, 2) NOT NULL,
+	[TypeOperation] [int] NOT NULL,
+	[ClientID] [int] NOT NULL,
+ CONSTRAINT [PK_Tiket] PRIMARY KEY CLUSTERED 
+(
+	[TiketsID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TypeHall]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TypeHall](
+	[TypeHallID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_TypeHalls] PRIMARY KEY CLUSTERED 
+(
+	[TypeHallID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TypeOperation]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TypeOperation](
+	[TypeOperationID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_TypeOperation] PRIMARY KEY CLUSTERED 
+(
+	[TypeOperationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 25.03.2026 23:43:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User](
+	[ClientID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[Phone] [nvarchar](30) NOT NULL,
+	[RoleID] [int] NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[ClientID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[AgeRating] ON 
+GO
+INSERT [dbo].[AgeRating] ([AgeRatingID], [Name], [Description]) VALUES (1, N'Рейтинг G', N'Нет возрастных ограничений')
+GO
+INSERT [dbo].[AgeRating] ([AgeRatingID], [Name], [Description]) VALUES (2, N'Рейтинг PG', N'Рекомендуется присутствие родителей')
+GO
+INSERT [dbo].[AgeRating] ([AgeRatingID], [Name], [Description]) VALUES (3, N'Рейтинг PG-13', N'Детям до 13 лет просмотр не желателен')
+GO
+INSERT [dbo].[AgeRating] ([AgeRatingID], [Name], [Description]) VALUES (4, N'Рейтинг R', N'Лицам до 17 лет обязательно присутствие взрослого')
+GO
+INSERT [dbo].[AgeRating] ([AgeRatingID], [Name], [Description]) VALUES (5, N'Рейтинг NC-17', N'Лицам до 18 лет просмотр запрещен')
+GO
+SET IDENTITY_INSERT [dbo].[AgeRating] OFF
+GO
+SET IDENTITY_INSERT [dbo].[CinemaHall] ON 
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (1, N'Standard Hall 1', 120, 10, 12, 1)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (2, N'Standard Hall 2', 150, 12, 12, 1)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (3, N'Standard Hall 3', 100, 10, 10, 1)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (4, N'VIP Gold', 40, 4, 10, 2)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (5, N'VIP Platinum', 50, 5, 10, 2)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (6, N'IMAX Main', 300, 15, 20, 3)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (7, N'Dolby Atmos A', 220, 11, 20, 4)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (8, N'Childrens Fun', 80, 8, 10, 5)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (9, N'Premium Lux', 110, 10, 11, 6)
+GO
+INSERT [dbo].[CinemaHall] ([CinemaHallID], [Name], [Сapacity], [Rows], [CountInRows], [TypeHallID]) VALUES (10, N'4DX Extreme', 100, 10, 10, 7)
+GO
+SET IDENTITY_INSERT [dbo].[CinemaHall] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Country] ON 
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (1, N'Россия')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (2, N'Германия')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (3, N'Сша')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (4, N'Япония')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (5, N'Франция')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (6, N'Италия')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (7, N'Беларусь')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (8, N'Украина')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (9, N'Узбекистан')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (10, N'Великобритания')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (11, N'Индия')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (12, N'Китай')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (13, N'Канада')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (14, N'Мексика')
+GO
+INSERT [dbo].[Country] ([CountyID], [Name]) VALUES (15, N'Новая Зеландия')
+GO
+SET IDENTITY_INSERT [dbo].[Country] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Director] ON 
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (1, N'Мартин Скорсезе', CAST(N'1942-11-17' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (2, N'Квентин Тарантино', CAST(N'1963-03-27' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (3, N'Джеймс Кэмерон', CAST(N'1954-08-16' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (4, N'Кристофер Нолан', CAST(N'1970-07-30' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (5, N'Гильермо дель Торо', CAST(N'1964-10-09' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (6, N'Дени Вильнёв', CAST(N'1967-10-03' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (7, N'Тим Бёртон', CAST(N'1958-08-25' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (8, N'Ридли Скотт', CAST(N'1937-11-30' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (9, N'Йодзи Ямада', CAST(N'1931-09-13' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (10, N'Стивен Спилберг', CAST(N'1946-12-18' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (11, N'Питер Джексон', CAST(N'1961-10-31' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (12, N'Джейн Кэмпион', CAST(N'1954-04-30' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (13, N'Андрей Тарковский', CAST(N'1932-04-04' AS Date))
+GO
+INSERT [dbo].[Director] ([DirectorID], [Name], [DateOfBirth]) VALUES (14, N'Федерико Феллини', CAST(N'1920-01-20' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[Director] OFF
+GO
+SET IDENTITY_INSERT [dbo].[FilmGenre] ON 
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (2, 1, 4)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (3, 2, 1)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (4, 2, 11)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (5, 3, 6)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (6, 3, 4)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (7, 4, 1)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (8, 4, 7)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (9, 5, 1)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (10, 5, 3)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (11, 6, 1)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (12, 6, 13)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (13, 7, 6)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (14, 7, 7)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (15, 8, 1)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (16, 8, 8)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (17, 9, 10)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (18, 9, 9)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (19, 10, 3)
+GO
+INSERT [dbo].[FilmGenre] ([FilmGenreID], [FilmID], [GenresID]) VALUES (20, 10, 4)
+GO
+SET IDENTITY_INSERT [dbo].[FilmGenre] OFF
+GO
+SET IDENTITY_INSERT [dbo].[FilmInfo] ON 
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (1, N'Ночной экспресс', 3, 1, 120, 3, 1, 1, NULL, N'Драматический триллер о поездке, меняющей судьбы персонажей.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (2, N'Тени войны', 10, 4, 150, 4, 12, 1, NULL, N'Эпическая военная драма с масштабными сценами и психологическим подтекстом.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (3, N'Океан памяти', 13, 3, 142, 4, 11, 1, NULL, N'Научно-фантастическая история о восстановлении утраченных воспоминаний.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (4, N'Город сновидений', 1, 7, 110, 2, 8, 7, NULL, N'Поэтическая лента о пересечениях реальности и воображения в большом городе.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (5, N'Последний фронт', 8, 10, 130, 4, 4, 1, NULL, N'Военная драма о героях и их выборе в критические моменты.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (6, N'Забытые песни', 11, 11, 118, 2, 10, 2, NULL, N'Музыкальная драма с элементами национальной культуры и семейной истории.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (7, N'Море огней', 5, 5, 125, 3, 5, 3, NULL, N'Фантастическая история с мистическими элементами, снятая в европейском стиле.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (8, N'Берега надежды', 15, 11, 165, 3, 15, 1, NULL, N'Эмоциональная сага о поиске дома и смысла жизни на удалённом острове.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (9, N'Тайна храма', 4, 9, 95, 1, 6, 4, NULL, N'Приключенческий фильм с элементами детектива и культурного наследия.')
+GO
+INSERT [dbo].[FilmInfo] ([FilmID], [Name], [CountryID], [DirectorID], [DurationMin], [AgeRatingID], [StudioID], [LanguageID], [Image], [Description]) VALUES (10, N'Последняя надежда', 12, 6, 140, 4, 18, 6, NULL, N'Боевик/триллер о борьбе за спасение больших сообществ в кризисный момент.')
+GO
+SET IDENTITY_INSERT [dbo].[FilmInfo] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Genre] ON 
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (1, N'Драма')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (2, N'Комедия')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (3, N'Боевик')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (4, N'Триллер')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (5, N'Ужасы')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (6, N'Фантастика')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (7, N'Фэнтези')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (8, N'Мелодрама')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (9, N'Детектив')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (10, N'Приключения')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (11, N'Исторический')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (12, N'Криминал')
+GO
+INSERT [dbo].[Genre] ([GenreID], [Name]) VALUES (13, N'Мюзикл')
+GO
+SET IDENTITY_INSERT [dbo].[Genre] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Language] ON 
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (1, N'Английский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (2, N'Хинди')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (3, N'Французский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (4, N'Японский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (5, N'Корейский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (6, N'Китайский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (7, N'Русский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (8, N'Итальянский')
+GO
+INSERT [dbo].[Language] ([LanguageID], [Name]) VALUES (9, N'Немецкий')
+GO
+SET IDENTITY_INSERT [dbo].[Language] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Role] ON 
+GO
+INSERT [dbo].[Role] ([RoleID], [Name]) VALUES (1, N'Администратор')
+GO
+INSERT [dbo].[Role] ([RoleID], [Name]) VALUES (2, N'Пользователь')
+GO
+INSERT [dbo].[Role] ([RoleID], [Name]) VALUES (3, N'Киномеханик')
+GO
+SET IDENTITY_INSERT [dbo].[Role] OFF
+GO
+INSERT [dbo].[SessionCinema] ([SessionCinemaID], [idCinema], [idHalls], [DateSession]) VALUES (1, 1, 1, CAST(N'2026-03-22' AS Date))
+GO
+INSERT [dbo].[SessionCinema] ([SessionCinemaID], [idCinema], [idHalls], [DateSession]) VALUES (2, 2, 6, CAST(N'2026-03-22' AS Date))
+GO
+INSERT [dbo].[SessionCinema] ([SessionCinemaID], [idCinema], [idHalls], [DateSession]) VALUES (3, 3, 10, CAST(N'2026-03-22' AS Date))
+GO
+INSERT [dbo].[SessionCinema] ([SessionCinemaID], [idCinema], [idHalls], [DateSession]) VALUES (4, 4, 8, CAST(N'2026-03-23' AS Date))
+GO
+INSERT [dbo].[SessionCinema] ([SessionCinemaID], [idCinema], [idHalls], [DateSession]) VALUES (5, 10, 3, CAST(N'2026-03-23' AS Date))
+GO
+INSERT [dbo].[SessionCinema] ([SessionCinemaID], [idCinema], [idHalls], [DateSession]) VALUES (6, 6, 7, CAST(N'2026-03-24' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[Studio] ON 
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (1, N'Warner Bros.')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (2, N'Universal Pictures')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (3, N'Walt Disney Pictures')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (4, N'Sony Pictures')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (5, N'Gaumont')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (6, N'Toho Studios')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (7, N'Lenfilm')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (8, N'Мосфильм')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (9, N'CJ Entertainment')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (10, N'Yash Raj Films')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (11, N'Paramount Pictures')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (12, N'20th Century Studios')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (13, N'Lionsgate Films')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (14, N'Studio Ghibli')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (15, N'Working Title Films')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (16, N'EuropaCorp')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (17, N'Aamir Khan Productions')
+GO
+INSERT [dbo].[Studio] ([StudioID], [Name]) VALUES (18, N'Central Partnership')
+GO
+SET IDENTITY_INSERT [dbo].[Studio] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tiket] ON 
+GO
+INSERT [dbo].[Tiket] ([TiketsID], [SessionID], [DateAndTime], [Price], [TypeOperation], [ClientID]) VALUES (2, 1, CAST(N'2026-03-21T14:30:00.000' AS DateTime), CAST(350.00 AS Decimal(10, 2)), 3, 2)
+GO
+INSERT [dbo].[Tiket] ([TiketsID], [SessionID], [DateAndTime], [Price], [TypeOperation], [ClientID]) VALUES (3, 1, CAST(N'2026-03-21T14:35:00.000' AS DateTime), CAST(350.00 AS Decimal(10, 2)), 3, 3)
+GO
+INSERT [dbo].[Tiket] ([TiketsID], [SessionID], [DateAndTime], [Price], [TypeOperation], [ClientID]) VALUES (4, 2, CAST(N'2026-03-22T10:00:00.000' AS DateTime), CAST(600.00 AS Decimal(10, 2)), 2, 2)
+GO
+INSERT [dbo].[Tiket] ([TiketsID], [SessionID], [DateAndTime], [Price], [TypeOperation], [ClientID]) VALUES (5, 5, CAST(N'2026-03-22T18:20:00.000' AS DateTime), CAST(450.00 AS Decimal(10, 2)), 4, 3)
+GO
+INSERT [dbo].[Tiket] ([TiketsID], [SessionID], [DateAndTime], [Price], [TypeOperation], [ClientID]) VALUES (6, 6, CAST(N'2026-03-23T12:00:00.000' AS DateTime), CAST(550.00 AS Decimal(10, 2)), 1, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Tiket] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TypeHall] ON 
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (1, N'Стандартный')
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (2, N'VIP-зал')
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (3, N'IMAX')
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (4, N'DOLBY ATMOS')
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (5, N'Детский')
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (6, N'Премиум')
+GO
+INSERT [dbo].[TypeHall] ([TypeHallID], [Name]) VALUES (7, N'4DX')
+GO
+SET IDENTITY_INSERT [dbo].[TypeHall] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TypeOperation] ON 
+GO
+INSERT [dbo].[TypeOperation] ([TypeOperationID], [Name]) VALUES (1, N'Наличные')
+GO
+INSERT [dbo].[TypeOperation] ([TypeOperationID], [Name]) VALUES (2, N'Банковская карта (терминал)')
+GO
+INSERT [dbo].[TypeOperation] ([TypeOperationID], [Name]) VALUES (3, N'Онлайн-оплата (СБП/Карта)')
+GO
+INSERT [dbo].[TypeOperation] ([TypeOperationID], [Name]) VALUES (4, N'Пушкинская карта')
+GO
+SET IDENTITY_INSERT [dbo].[TypeOperation] OFF
+GO
+SET IDENTITY_INSERT [dbo].[User] ON 
+GO
+INSERT [dbo].[User] ([ClientID], [Name], [Phone], [RoleID]) VALUES (1, N'Смирнова Ольга Владимировна', N'+7(901)234-56-78', 1)
+GO
+INSERT [dbo].[User] ([ClientID], [Name], [Phone], [RoleID]) VALUES (2, N'Петрова Анна Сергеевна', N'+7(902)345-67-89', 2)
+GO
+INSERT [dbo].[User] ([ClientID], [Name], [Phone], [RoleID]) VALUES (3, N'Сидоров Дмитрий Игоревич', N'+7(903)456-78-90', 2)
+GO
+INSERT [dbo].[User] ([ClientID], [Name], [Phone], [RoleID]) VALUES (4, N'Николаева Татьяна Викторовна', N'+7(905)678-90-12', 3)
+GO
+SET IDENTITY_INSERT [dbo].[User] OFF
+GO
+ALTER TABLE [dbo].[CinemaHall]  WITH CHECK ADD  CONSTRAINT [FK_CinemaHall_TypeHall] FOREIGN KEY([TypeHallID])
+REFERENCES [dbo].[TypeHall] ([TypeHallID])
+GO
+ALTER TABLE [dbo].[CinemaHall] CHECK CONSTRAINT [FK_CinemaHall_TypeHall]
+GO
+ALTER TABLE [dbo].[FilmGenre]  WITH CHECK ADD  CONSTRAINT [FK_FilmGenre_FilmInfo] FOREIGN KEY([FilmID])
+REFERENCES [dbo].[FilmInfo] ([FilmID])
+GO
+ALTER TABLE [dbo].[FilmGenre] CHECK CONSTRAINT [FK_FilmGenre_FilmInfo]
+GO
+ALTER TABLE [dbo].[FilmGenre]  WITH CHECK ADD  CONSTRAINT [FK_FilmGenre_Genre] FOREIGN KEY([GenresID])
+REFERENCES [dbo].[Genre] ([GenreID])
+GO
+ALTER TABLE [dbo].[FilmGenre] CHECK CONSTRAINT [FK_FilmGenre_Genre]
+GO
+ALTER TABLE [dbo].[FilmInfo]  WITH CHECK ADD  CONSTRAINT [FK_FilmInfo_AgeRating] FOREIGN KEY([AgeRatingID])
+REFERENCES [dbo].[AgeRating] ([AgeRatingID])
+GO
+ALTER TABLE [dbo].[FilmInfo] CHECK CONSTRAINT [FK_FilmInfo_AgeRating]
+GO
+ALTER TABLE [dbo].[FilmInfo]  WITH CHECK ADD  CONSTRAINT [FK_FilmInfo_Country] FOREIGN KEY([CountryID])
+REFERENCES [dbo].[Country] ([CountyID])
+GO
+ALTER TABLE [dbo].[FilmInfo] CHECK CONSTRAINT [FK_FilmInfo_Country]
+GO
+ALTER TABLE [dbo].[FilmInfo]  WITH CHECK ADD  CONSTRAINT [FK_FilmInfo_Director] FOREIGN KEY([DirectorID])
+REFERENCES [dbo].[Director] ([DirectorID])
+GO
+ALTER TABLE [dbo].[FilmInfo] CHECK CONSTRAINT [FK_FilmInfo_Director]
+GO
+ALTER TABLE [dbo].[FilmInfo]  WITH CHECK ADD  CONSTRAINT [FK_FilmInfo_Language] FOREIGN KEY([LanguageID])
+REFERENCES [dbo].[Language] ([LanguageID])
+GO
+ALTER TABLE [dbo].[FilmInfo] CHECK CONSTRAINT [FK_FilmInfo_Language]
+GO
+ALTER TABLE [dbo].[FilmInfo]  WITH CHECK ADD  CONSTRAINT [FK_FilmInfo_Studio] FOREIGN KEY([StudioID])
+REFERENCES [dbo].[Studio] ([StudioID])
+GO
+ALTER TABLE [dbo].[FilmInfo] CHECK CONSTRAINT [FK_FilmInfo_Studio]
+GO
+ALTER TABLE [dbo].[SessionCinema]  WITH CHECK ADD  CONSTRAINT [FK_SessionCinema_CinemaHall] FOREIGN KEY([idHalls])
+REFERENCES [dbo].[CinemaHall] ([CinemaHallID])
+GO
+ALTER TABLE [dbo].[SessionCinema] CHECK CONSTRAINT [FK_SessionCinema_CinemaHall]
+GO
+ALTER TABLE [dbo].[SessionCinema]  WITH CHECK ADD  CONSTRAINT [FK_SessionCinema_FilmInfo] FOREIGN KEY([idCinema])
+REFERENCES [dbo].[FilmInfo] ([FilmID])
+GO
+ALTER TABLE [dbo].[SessionCinema] CHECK CONSTRAINT [FK_SessionCinema_FilmInfo]
+GO
+ALTER TABLE [dbo].[Tiket]  WITH CHECK ADD  CONSTRAINT [FK_Tiket_SessionCinema] FOREIGN KEY([SessionID])
+REFERENCES [dbo].[SessionCinema] ([SessionCinemaID])
+GO
+ALTER TABLE [dbo].[Tiket] CHECK CONSTRAINT [FK_Tiket_SessionCinema]
+GO
+ALTER TABLE [dbo].[Tiket]  WITH CHECK ADD  CONSTRAINT [FK_Tiket_TypeOperation] FOREIGN KEY([TypeOperation])
+REFERENCES [dbo].[TypeOperation] ([TypeOperationID])
+GO
+ALTER TABLE [dbo].[Tiket] CHECK CONSTRAINT [FK_Tiket_TypeOperation]
+GO
+ALTER TABLE [dbo].[Tiket]  WITH CHECK ADD  CONSTRAINT [FK_Tiket_User] FOREIGN KEY([ClientID])
+REFERENCES [dbo].[User] ([ClientID])
+GO
+ALTER TABLE [dbo].[Tiket] CHECK CONSTRAINT [FK_Tiket_User]
+GO
+ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_Role] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[Role] ([RoleID])
+GO
+ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_Role]
+GO
+USE [master]
+GO
+ALTER DATABASE [CinemaOnline] SET  READ_WRITE 
+GO
